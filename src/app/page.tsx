@@ -1,103 +1,97 @@
-import Image from "next/image";
+'use client';
+
+import { ArrowDownToLine, Zap, Palette, ArrowUpFromLine } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-black text-white flex flex-col">
+      <main className="flex-1 flex items-center justify-center py-12">
+        <div className="max-w-md mx-auto px-6 text-center">
+          {/* Logo */}
+          <div className="flex items-center justify-center mb-6">
+            <Image src="/zedit_logo_1024.png" alt="Zedit Logo" width={64} height={64} className="mr-2" />
+            <h1 className="text-5xl font-bold text-white">EDIT</h1>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <p className="text-gray-300 text-lg mb-8">Smart Video Clipping with AI</p>
+          
+          {/* App screenshots - Asymmetric design with hover effects */}
+          <div className="relative mb-14 h-72 mx-auto">
+            {/* Second ss (shown first in asymmetric design) */}
+            <div className="absolute right-8 top-0 w-36 h-70 bg-gray-900 rounded-2xl overflow-hidden shadow-xl transform rotate-2 z-10 
+                       hover:scale-110 hover:z-30 transition-all duration-300 ease-in-out hover:shadow-2xl">
+              <Image 
+                src="/ss/ss7.jpeg" 
+                alt="App interface showing video clipping features"
+                width={280}
+                height={550}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* First ss (shown second in reverse order) */}
+            <div className="absolute left-8 top-4 w-36 h-68 bg-gray-900 rounded-2xl overflow-hidden shadow-xl transform -rotate-2
+                       hover:scale-110 hover:z-30 transition-all duration-300 ease-in-out hover:shadow-2xl">
+              <Image 
+                src="/ss/ss5.jpeg" 
+                alt="App main screen with editing interface"
+                width={280}
+                height={550}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Third ss (shown last in asymmetric design) */}
+            <div className="absolute left-8 bottom-0 w-36 h-70 bg-gray-900 rounded-2xl overflow-hidden shadow-xl transform rotate-2
+                       hover:scale-110 hover:z-30 transition-all duration-300 ease-in-out hover:shadow-2xl">
+              <Image 
+                src="/ss/ss6.jpeg" 
+                alt="App interface showing video editing features"
+                width={280}
+                height={550}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          
+          {/* App Store Button */}
+          <a 
+            href="#" 
+            className="bg-[#0A84FF] text-white py-4 px-8 rounded-xl font-medium inline-block shadow-lg mb-8"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            Download on App Store
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          
+          {/* Features */}
+          <div className="grid grid-cols-2 gap-4 mb-12 max-w-xs mx-auto">
+            <Feature icon={<Zap size={20} />} text="AI Powered" />
+            <Feature icon={<Palette size={20} />} text="Smart Edits" />
+            <Feature icon={<ArrowDownToLine size={20} />} text="Easy Import" />
+            <Feature icon={<ArrowUpFromLine size={20} />} text="Quick Export" />
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      
+      <footer className="text-center py-4 text-sm text-gray-500">
+        <p>© 2025 Zedit. All rights reserved.</p>
       </footer>
+    </div>
+  );
+}
+
+type FeatureProps = {
+  icon: React.ReactNode;
+  text: string;
+};
+
+function Feature({ icon, text }: FeatureProps) {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <div className="w-10 h-10 rounded-full bg-black/60 border border-gray-800 flex items-center justify-center">
+        {icon}
+      </div>
+      <p className="text-xs">{text}</p>
     </div>
   );
 }
